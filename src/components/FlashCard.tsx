@@ -22,19 +22,19 @@ const FlashCard: React.FC<FlashCardProps> = ({ question, answer }) => {
 
   return (
     <div 
-      className={`flip-card w-full max-w-xl h-80 sm:h-96 ${isFlipped ? 'flipped' : ''}`} 
+      className={`flip-card w-full max-w-2xl h-96 sm:h-[450px] ${isFlipped ? 'flipped' : ''}`} 
       onClick={handleFlip}
     >
       <div className="flip-card-inner relative w-full h-full">
         {/* Front of the card */}
-        <div className="flip-card-front absolute w-full h-full rounded-xl p-8 sm:p-10 shadow-lg bg-white border flex flex-col">
+        <div className="flip-card-front absolute w-full h-full rounded-xl p-8 sm:p-12 shadow-lg bg-white border flex flex-col">
           <div className="hint-button absolute top-4 left-4 flex items-center gap-1 text-xs text-gray-500 hover:text-primary cursor-pointer" onClick={toggleHint}>
             <Lightbulb size={16} />
             <span>Get a hint</span>
           </div>
           
           <div className="flex items-center justify-center flex-1">
-            <h2 className="text-xl sm:text-2xl font-medium text-center">{question}</h2>
+            <h2 className="text-2xl sm:text-3xl font-medium text-center">{question}</h2>
           </div>
           
           {showHint && !isFlipped && (
@@ -45,9 +45,9 @@ const FlashCard: React.FC<FlashCardProps> = ({ question, answer }) => {
         </div>
         
         {/* Back of the card */}
-        <div className="flip-card-back absolute w-full h-full rounded-xl p-8 sm:p-10 shadow-lg bg-secondary border flex flex-col">
+        <div className="flip-card-back absolute w-full h-full rounded-xl p-8 sm:p-12 shadow-lg bg-secondary border flex flex-col">
           <div className="flex items-center justify-center flex-1">
-            <p className="text-xl sm:text-2xl font-medium text-center">{answer}</p>
+            <p className="text-2xl sm:text-3xl font-medium text-center">{answer}</p>
           </div>
         </div>
       </div>

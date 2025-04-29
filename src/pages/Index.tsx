@@ -94,15 +94,15 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center py-8 px-4 bg-gradient-to-br from-white to-secondary">
-      <div className="container max-w-5xl mx-auto">
-        <header className="mb-12 text-center">
+      <div className="container max-w-5xl mx-auto flex flex-col items-center">
+        <header className="mb-12 text-center w-full">
           <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-2">География 8 класс</h1>
           <p className="text-lg text-gray-600">Флеш-карточки для проверки знаний</p>
         </header>
         
         {!isCompleted ? (
-          <div className="flex flex-col items-center">
-            <div className={`w-full ${animationClass}`}>
+          <div className="flex flex-col items-center justify-center w-full">
+            <div className={`w-full flex justify-center ${animationClass}`}>
               <FlashCard 
                 question={cards[currentCardIndex].question} 
                 answer={cards[currentCardIndex].answer} 
@@ -121,7 +121,7 @@ const Index = () => {
           <Results cards={cards} onRestart={handleRestart} />
         )}
         
-        <footer className="mt-16 text-center text-sm text-gray-500">
+        <footer className="mt-16 text-center text-sm text-gray-500 w-full">
           <p>Интерактивные флеш-карточки по географии для 8 класса</p>
         </footer>
       </div>

@@ -16,6 +16,7 @@ const FlashCard: React.FC<FlashCardProps> = ({ question, answer, resetFlip = fal
   useEffect(() => {
     if (resetFlip) {
       setIsFlipped(false);
+      setShowHint(false); // Also reset the hint state when navigating
     }
   }, [resetFlip]);
 

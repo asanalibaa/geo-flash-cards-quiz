@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Lightbulb } from 'lucide-react';
+import { Lightbulb, Pyramid } from 'lucide-react';
 
 interface FlashCardProps {
   question: string;
@@ -33,6 +33,10 @@ const FlashCard: React.FC<FlashCardProps> = ({ question, answer }) => {
             <span>Get a hint</span>
           </div>
           
+          <div className="absolute top-4 right-4">
+            <Pyramid size={24} className="text-primary opacity-50" />
+          </div>
+          
           <div className="flex items-center justify-center flex-1">
             <h2 className="text-2xl sm:text-3xl font-medium text-center">{question}</h2>
           </div>
@@ -46,6 +50,10 @@ const FlashCard: React.FC<FlashCardProps> = ({ question, answer }) => {
         
         {/* Back of the card */}
         <div className="flip-card-back absolute w-full h-full rounded-xl p-8 sm:p-12 shadow-lg bg-secondary border flex flex-col">
+          <div className="absolute top-4 right-4">
+            <Pyramid size={24} className="text-primary opacity-50" />
+          </div>
+          
           <div className="flex items-center justify-center flex-1">
             <p className="text-2xl sm:text-3xl font-medium text-center">{answer}</p>
           </div>

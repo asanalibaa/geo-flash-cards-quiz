@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Lightbulb, Pyramid } from 'lucide-react';
+import { Lightbulb, Pyramid, Globe, Mountain, Map, Compass } from 'lucide-react';
 
 interface FlashCardProps {
   question: string;
@@ -42,8 +42,25 @@ const FlashCard: React.FC<FlashCardProps> = ({ question, answer, resetFlip = fal
             <span>Get a hint</span>
           </div>
           
+          {/* Decorative elements */}
           <div className="absolute top-4 right-4">
-            <Pyramid size={24} className="text-primary opacity-50" />
+            <Pyramid size={24} className="text-primary opacity-60" />
+          </div>
+
+          <div className="absolute bottom-4 left-4">
+            <Globe size={20} className="text-primary opacity-40" />
+          </div>
+          
+          <div className="absolute bottom-4 right-4">
+            <Mountain size={20} className="text-primary opacity-40" />
+          </div>
+
+          <div className="absolute top-1/2 left-3 transform -translate-y-1/2">
+            <Compass size={16} className="text-primary opacity-30" />
+          </div>
+
+          <div className="absolute top-1/2 right-3 transform -translate-y-1/2">
+            <Map size={16} className="text-primary opacity-30" />
           </div>
           
           <div className="flex items-center justify-center flex-1">
@@ -60,7 +77,23 @@ const FlashCard: React.FC<FlashCardProps> = ({ question, answer, resetFlip = fal
         {/* Back of the card */}
         <div className="flip-card-back absolute w-full h-full rounded-xl p-8 sm:p-12 shadow-lg bg-secondary border flex flex-col">
           <div className="absolute top-4 right-4">
-            <Pyramid size={24} className="text-primary opacity-50" />
+            <Pyramid size={24} className="text-primary opacity-60" />
+          </div>
+
+          <div className="absolute bottom-4 left-4">
+            <Globe size={20} className="text-primary opacity-40" />
+          </div>
+          
+          <div className="absolute bottom-4 right-4">
+            <Mountain size={20} className="text-primary opacity-40" />
+          </div>
+          
+          <div className="absolute top-1/2 left-3 transform -translate-y-1/2">
+            <Compass size={16} className="text-primary opacity-30" />
+          </div>
+
+          <div className="absolute top-1/2 right-3 transform -translate-y-1/2">
+            <Map size={16} className="text-primary opacity-30" />
           </div>
           
           <div className="flex items-center justify-center flex-1">

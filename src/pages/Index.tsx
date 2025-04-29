@@ -11,6 +11,7 @@ const Index = () => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
   const [animationDirection, setAnimationDirection] = useState<'right' | 'left' | null>(null);
+  const [resetCardFlip, setResetCardFlip] = useState(false);
 
   // Initialize all cards as unanswered
   useEffect(() => {
@@ -20,6 +21,8 @@ const Index = () => {
   const handlePrevious = () => {
     if (currentCardIndex > 0) {
       setAnimationDirection('left');
+      // Toggle resetCardFlip to trigger the useEffect in FlashCard
+      setResetCardFlip(prev => !prev);
       setTimeout(() => {
         setCurrentCardIndex(currentCardIndex - 1);
         setAnimationDirection(null);
@@ -37,6 +40,8 @@ const Index = () => {
       setCards(updatedCards);
       
       setAnimationDirection('right');
+      // Toggle resetCardFlip to trigger the useEffect in FlashCard
+      setResetCardFlip(prev => !prev);
       setTimeout(() => {
         setCurrentCardIndex(currentCardIndex + 1);
         setAnimationDirection(null);
@@ -72,6 +77,8 @@ const Index = () => {
     setCards(shuffledCards);
     setCurrentCardIndex(0);
     setIsCompleted(false);
+    // Reset the card to show question side
+    setResetCardFlip(prev => !prev);
     
     toast({
       title: "Карточки перемешаны",
@@ -84,6 +91,8 @@ const Index = () => {
     setCards(flashcardsData.map(card => ({ ...card, isCorrect: undefined })));
     setCurrentCardIndex(0);
     setIsCompleted(false);
+    // Reset the card to show question side
+    setResetCardFlip(prev => !prev);
   };
 
   const animationClass = animationDirection === 'right' 
@@ -106,6 +115,7 @@ const Index = () => {
               <FlashCard 
                 question={cards[currentCardIndex].question} 
                 answer={cards[currentCardIndex].answer} 
+                resetFlip={resetCardFlip}
               />
             </div>
             

@@ -1,15 +1,23 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Lightbulb, Pyramid } from 'lucide-react';
 
 interface FlashCardProps {
   question: string;
   answer: string;
+  resetFlip?: boolean;
 }
 
-const FlashCard: React.FC<FlashCardProps> = ({ question, answer }) => {
+const FlashCard: React.FC<FlashCardProps> = ({ question, answer, resetFlip = false }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [showHint, setShowHint] = useState(false);
+
+  // Reset the card to question side when resetFlip prop changes
+  useEffect(() => {
+    if (resetFlip) {
+      setIsFlipped(false);
+    }
+  }, [resetFlip]);
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
